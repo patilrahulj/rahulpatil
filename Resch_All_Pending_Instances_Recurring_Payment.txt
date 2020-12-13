@@ -1,0 +1,577 @@
+This is the sequence of API calls rescheduling all pending unprocessed instanced of recurring paymnet:
+
+Step 1. Create a Recurring Transaction 
+
+  1a. Request:
+ 
+ <soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:init="http://www.infosys.com/request/InitiatePmtToPersonalPayee"
+	xmlns:head="http://www.infosys.com/request/header">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<init:InitiatePmtToPersonalPayeeRequest version="">
+			<head:header>
+				<head:__SRVCID__>PMTN</head:__SRVCID__>
+				<head:OPFMT>XML</head:OPFMT>
+				<head:CHANNEL_ID>G</head:CHANNEL_ID>
+				<head:BANK_ID>IBKL</head:BANK_ID>
+				<head:IPFMT>XML</head:IPFMT>
+				<head:LOGIN_FLAG>1</head:LOGIN_FLAG>
+				<head:LANGUAGE_ID>001</head:LANGUAGE_ID>
+				<head:ISMULTIREC>Y</head:ISMULTIREC>
+				<head:USER_PRINCIPAL>70361528</head:USER_PRINCIPAL>
+				<head:CORP_PRINCIPAL>70361528</head:CORP_PRINCIPAL>
+				<head:STATEMODE>Y</head:STATEMODE>
+				<head:FORM_ID></head:FORM_ID>
+				<head:ACCESS_CODE></head:ACCESS_CODE>
+				<head:LOGIN_TYPE></head:LOGIN_TYPE>
+				<head:RELATIONSHIP_ID></head:RELATIONSHIP_ID>
+				<head:IP_ADDRESS></head:IP_ADDRESS>
+				<head:PORTAL_REQUEST></head:PORTAL_REQUEST>
+				<head:PORTAL_RANDOM_ID></head:PORTAL_RANDOM_ID>
+				<head:USER_ID></head:USER_ID>
+				<head:ISATTACHMENT></head:ISATTACHMENT>
+				<head:DEVICE_ID></head:DEVICE_ID>
+				<head:DEVICE_TYPE></head:DEVICE_TYPE>
+				<head:MACHINE_FINGER_PRINT></head:MACHINE_FINGER_PRINT>
+				<head:BROWSER_TYPE></head:BROWSER_TYPE>
+				<head:REQUESTED_FRAME_START_INDEX></head:REQUESTED_FRAME_START_INDEX>
+			</head:header>
+			<init:InitiatePmtToPersonalPayee>
+				<init:TXN_DATE>29/05/2020</init:TXN_DATE>
+				<init:TXN_CURRENCY>INR</init:TXN_CURRENCY>
+				<init:TXN_AMOUNT>36</init:TXN_AMOUNT>
+				<init:FROM_ACCOUNT_ID>103104000134378</init:FROM_ACCOUNT_ID>
+				<init:FROM_ACCOUNT_BRANCH_CODE></init:FROM_ACCOUNT_BRANCH_CODE>
+				<init:PAYEE_ID>32576155</init:PAYEE_ID>
+				<init:PAYEE_LIST_ID>32948447</init:PAYEE_LIST_ID>
+				<init:FREQUENCY_TYPE>R</init:FREQUENCY_TYPE>
+				<init:ORIGINATOR_ID></init:ORIGINATOR_ID>
+				<init:IS_CONFIDENTIAL></init:IS_CONFIDENTIAL>
+				<init:TXN_REMARKS>Twst</init:TXN_REMARKS>
+				<init:NETWORK></init:NETWORK>
+				<init:CALL_MODE></init:CALL_MODE>
+				<init:BENEFICIARY_REFERENCE></init:BENEFICIARY_REFERENCE>
+				<init:FILE_SEQN_NUM></init:FILE_SEQN_NUM>
+				<init:REC_NUMBER></init:REC_NUMBER>
+				<init:BENEFICIARY_ADDRESS_1></init:BENEFICIARY_ADDRESS_1>
+				<init:BENEFICIARY_ADDRESS_2></init:BENEFICIARY_ADDRESS_2>
+				<init:BENEFICIARY_ADDRESS_3></init:BENEFICIARY_ADDRESS_3>
+				<init:BENEFICIARY_CITY></init:BENEFICIARY_CITY>
+				<init:BENEFICIARY_ZIP></init:BENEFICIARY_ZIP>
+				<init:BENEFICIARY_STATE></init:BENEFICIARY_STATE>
+				<init:BENEFICIARY_COUNTRY></init:BENEFICIARY_COUNTRY>
+				<init:BNF_CODE></init:BNF_CODE>
+				<init:BNF_REFERENCE_PARTY_NAME></init:BNF_REFERENCE_PARTY_NAME>
+				<init:BNF_REFERENCE_PARTY_ID></init:BNF_REFERENCE_PARTY_ID>
+				<init:TRAN_PURPOSE></init:TRAN_PURPOSE>
+				<init:ON_BEHALF_OF></init:ON_BEHALF_OF>
+				<init:RecurringTransaction>
+					<init:VALIDITY_INDICATOR></init:VALIDITY_INDICATOR>
+					<init:RECURRING_FREQUENCY>4</init:RECURRING_FREQUENCY>
+					<init:TOTAL_NUM_OF_INSTANCES>6</init:TOTAL_NUM_OF_INSTANCES>
+					<init:FIRST_PMT_DATE></init:FIRST_PMT_DATE>
+					<init:FREQUENCY_IN_DAYS></init:FREQUENCY_IN_DAYS>
+					<init:END_DATE></init:END_DATE>
+					<init:RECURRING_FIRST_PMT_AMOUNT></init:RECURRING_FIRST_PMT_AMOUNT>
+					<init:RECURRING_LAST_PMT_AMOUNT></init:RECURRING_LAST_PMT_AMOUNT>
+				</init:RecurringTransaction>
+				<init:WorkFlowUserInput>
+					<init:WORKFLOW_RULE_ID></init:WORKFLOW_RULE_ID>
+					<init:WORKFLOW_USER_REMARKS></init:WORKFLOW_USER_REMARKS>
+					<init:NEXT_APPROVER_ID></init:NEXT_APPROVER_ID>
+					<init:NEXT_APPROVER_TYPE></init:NEXT_APPROVER_TYPE>
+					<init:IS_WORK_FLOW_REQD></init:IS_WORK_FLOW_REQD>
+					<init:IS_DEFAULT_RULE></init:IS_DEFAULT_RULE>
+				</init:WorkFlowUserInput>
+				<init:InitiateTransaction>
+					<init:HOST_PAYEE_ID></init:HOST_PAYEE_ID>
+				</init:InitiateTransaction>
+			</init:InitiatePmtToPersonalPayee>
+		</init:InitiatePmtToPersonalPayeeRequest>
+	</soapenv:Body>
+</soapenv:Envelope>
+ 
+  1b. Response:
+ 
+<?xml version="1.0" encoding="UTF-8"?>
+<InitiatePmtToPersonalPayeeResponse
+	xmlns="http://www.infosys.com/response/InitiatePmtToPersonalPayee"
+	xmlns:ft="http://www.infosys.com/response/footer"
+	xmlns:hd="http://www.infosys.com/response/header"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.infosys.com/response/InitiatePmtToPersonalPayee InitiatePmtToPersonalPayeeResponse.xsd">
+	<hd:header>
+		<hd:STATUS>
+			<hd:MESSAGE>
+				<hd:MESSAGE_CODE>100761</hd:MESSAGE_CODE>
+				<hd:MESSAGE_DESC>The transaction with reference ID is submitted successfully and is pending for processing. Ref. ID: [71919995]</hd:MESSAGE_DESC>
+				<hd:MESSAGE_TYPE>BC</hd:MESSAGE_TYPE>
+			</hd:MESSAGE>
+		</hd:STATUS>
+		<hd:SESSION>
+			<hd:SESSION_ID>0000ayoD_VjRHajODz2BqjOS2Up:1cv04ujba</hd:SESSION_ID>
+			<hd:FORM_ID>4311</hd:FORM_ID>
+		</hd:SESSION>
+	</hd:header>
+	<InitiatePmtToPersonalPayee>
+		<TXN_ID/>
+		<REQUEST_ID>71919995</REQUEST_ID>
+		<TXN_STATUS/>
+		<HOST_REFERENCE_NUM/>
+		<RESPONSE_CODE/>
+		<RESPONSE_MESSAGE/>
+	</InitiatePmtToPersonalPayee>
+	<ft:footer>
+		<ft:CODEDESCRIPTION/>
+	</ft:footer>
+</InitiatePmtToPersonalPayeeResponse>
+
+
+
+Step 2: Fetching the schedule of recurring payment created in step 1 :
+ 
+ 
+  2a. Request: 
+
+<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tran="http://www.infosys.com/request/TranDetails"
+xmlns:head="http://www.infosys.com/request/header">
+<soapenv:Header/>
+<soapenv:Body>
+	<tran:TranDetailsRequest version=" ">
+		<head:header>
+			<head:__SRVCID__>TRDET</head:__SRVCID__>
+			<head:OPFMT>XML</head:OPFMT>
+			<head:CHANNEL_ID>G</head:CHANNEL_ID>
+			<head:BANK_ID>IBKL</head:BANK_ID>
+			<head:IPFMT>XML</head:IPFMT>
+			<head:LOGIN_FLAG>1</head:LOGIN_FLAG>
+			<head:LANGUAGE_ID>001</head:LANGUAGE_ID>
+			<head:ISMULTIREC>Y</head:ISMULTIREC>
+			<head:USER_PRINCIPAL>70361528</head:USER_PRINCIPAL>
+			<head:CORP_PRINCIPAL>70361528</head:CORP_PRINCIPAL>
+			<head:STATEMODE>Y</head:STATEMODE>
+			<head:FORM_ID></head:FORM_ID>
+			<head:ACCESS_CODE></head:ACCESS_CODE>
+			<head:LOGIN_TYPE></head:LOGIN_TYPE>
+			<head:RELATIONSHIP_ID></head:RELATIONSHIP_ID>
+			<head:IP_ADDRESS></head:IP_ADDRESS>
+			<head:PORTAL_REQUEST></head:PORTAL_REQUEST>
+			<head:PORTAL_RANDOM_ID></head:PORTAL_RANDOM_ID>
+			<head:USER_ID></head:USER_ID>
+			<head:ISATTACHMENT></head:ISATTACHMENT>
+			<head:DEVICE_ID></head:DEVICE_ID>
+			<head:DEVICE_TYPE></head:DEVICE_TYPE>
+			<head:MACHINE_FINGER_PRINT></head:MACHINE_FINGER_PRINT>
+			<head:BROWSER_TYPE></head:BROWSER_TYPE>
+			<head:REQUESTED_FRAME_START_INDEX></head:REQUESTED_FRAME_START_INDEX>
+		</head:header>
+		<tran:TranDetails>
+			<tran:TXN_TYPE>NFT</tran:TXN_TYPE>
+			<tran:REQUEST_ID>71919995</tran:REQUEST_ID>
+		</tran:TranDetails>
+	</tran:TranDetailsRequest>
+</soapenv:Body>undefined</soapenv:Envelope>
+ 
+  
+   2b. Response:
+ 
+  <?xml version="1.0" encoding="UTF-8"?>
+<TranDetailsResponse
+	xmlns="http://www.infosys.com/response/TranDetails"
+	xmlns:ft="http://www.infosys.com/response/footer"
+	xmlns:hd="http://www.infosys.com/response/header"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.infosys.com/response/TranDetails TranDetailsResponse.xsd">
+	<hd:header>
+		<hd:STATUS>
+			<hd:MESSAGE>
+				<hd:MESSAGE_CODE>0000</hd:MESSAGE_CODE>
+				<hd:MESSAGE_DESC>SUCCESS</hd:MESSAGE_DESC>
+				<hd:MESSAGE_TYPE>SU</hd:MESSAGE_TYPE>
+			</hd:MESSAGE>
+		</hd:STATUS>
+		<hd:SESSION>
+			<hd:SESSION_ID>0000wC13NTVYZ4_4sEv90IG4RKx:1cv04ujba</hd:SESSION_ID>
+			<hd:FORM_ID>4338</hd:FORM_ID>
+		</hd:SESSION>
+		<hd:PAGINATION>
+			<hd:NUM_REC_RETURNED>1</hd:NUM_REC_RETURNED>
+			<hd:HAS_MORE_RECORDS>N</hd:HAS_MORE_RECORDS>
+		</hd:PAGINATION>
+	</hd:header>
+	<TransactionDetails>
+		<USER_TYPE>1</USER_TYPE>
+		<TXN_TYPE>NFT</TXN_TYPE>
+		<FREQ_TYPE>R</FREQ_TYPE>
+		<TXN_DATE>29/05/2020 12:00:00 AM</TXN_DATE>
+		<TXN_CRN>INR</TXN_CRN>
+		<HLD_FLG>N</HLD_FLG>
+		<IS_TXN_CONFIDENTIAL>N</IS_TXN_CONFIDENTIAL>
+		<MAN_REL_UPDATE>N</MAN_REL_UPDATE>
+		<HIGHEST_ENTRY_AMT>INR|36.00</HIGHEST_ENTRY_AMT>
+		<TOTAL_TXN_AMT>INR|36.00</TOTAL_TXN_AMT>
+		<TOTAL_CHARGE_AMT>INR|0.00</TOTAL_CHARGE_AMT>
+		<TOTAL_AMT>INR|36.00</TOTAL_AMT>
+		<TOTAL_NO_ENTRIES>1</TOTAL_NO_ENTRIES>
+		<HIGHEST_REQUEST_SR_NO>1</HIGHEST_REQUEST_SR_NO>
+		<TOT_NO_INST>6</TOT_NO_INST>
+		<TXN_STATUS>FTD</TXN_STATUS>
+		<REQUEST_ID>71919995</REQUEST_ID>
+		<PARENT_REQUEST_ID>0</PARENT_REQUEST_ID>
+		<HOST_REF_NUM/>
+		<NEGOTIATED_RATE_VAR_CRN/>
+		<NEGOTIATED_RATE_VAR/>
+		<NEGOTIATED_RATE_FXD_CRN/>
+		<NEGOTIATED_RATE_FXD/>
+		<APPROVAL_REASON/>
+		<USER_ENTRY_REMARKS/>
+		<TRAN_CP_TYPE/>
+		<MAX_NO_OF_ENTRIES/>
+		<MANDATE_ID/>
+		<ENTRY_INDEX>-1</ENTRY_INDEX>
+		<MARKED_FOR_STOP_STATUS>N</MARKED_FOR_STOP_STATUS>
+		<ENTRY_ID_SINGLE/>
+		<ENTRY_AMT_SINGLE/>
+		<FIRST_PMT_AMT/>
+		<LAST_PMT_AMT/>
+		<REQUEST_TYPE/>
+		<NO_OF_INST_PROCESSED>0</NO_OF_INST_PROCESSED>
+		<VAL_IND>N</VAL_IND>
+		<REC_FREQ>4</REC_FREQ>
+	</TransactionDetails>
+	<TransactionRecordDetails>
+		<TransactionRecordDetails_REC>
+			<ENTRY_ID>1</ENTRY_ID>
+			<ORIG_DETAIL>RAHUL JIJABRAO PATIL</ORIG_DETAIL>
+			<NETWORK>NFT</NETWORK>
+			<DEST_DETAIL>RAHUL JIJABRAO PATIL</DEST_DETAIL>
+			<DEST_ID>32948447|</DEST_ID>
+			<DEST_TYPE>P</DEST_TYPE>
+			<CHARGE_AMT>INR|0.00</CHARGE_AMT>
+			<ENTRY_AMT>INR|36.00</ENTRY_AMT>
+			<TOTAL_AMOUNT>INR|36.00</TOTAL_AMOUNT>
+			<INITOR_ACCOUNT>103104000134378|IBKL|00103</INITOR_ACCOUNT>
+			<INITOR_TYPE>O</INITOR_TYPE>
+			<DEL_FLG>N</DEL_FLG>
+			<ENTRY_STATUS/>
+			<MARKED_FOR_STOP_STATS/>
+			<ENT_REMARKS>Twst</ENT_REMARKS>
+		</TransactionRecordDetails_REC>
+	</TransactionRecordDetails>
+	<ft:footer>
+		<ft:CODEDESCRIPTION>
+			<ft:CODESET Name="TXN_STATUS">
+				<ft:CODE Value="FTD" description="Future Dated"/>
+			</ft:CODESET>
+			<ft:CODESET Name="TXN_TYPE">
+				<ft:CODE Value="NFT" description="Initiate NEFT Payment"/>
+			</ft:CODESET>
+			<ft:CODESET Name="FREQ_TYPE">
+				<ft:CODE Value="R" description="Recurring"/>
+			</ft:CODESET>
+			<ft:CODESET Name="USER_TYPE">
+				<ft:CODE Value="1" description="Retail Users"/>
+			</ft:CODESET>
+			<ft:CODESET Name="TXN_CRN">
+				<ft:CODE Value="INR" description="INR"/>
+			</ft:CODESET>
+			<ft:CODESET Name="NEGOTIATED_RATE_VAR_CRN">
+				<ft:CODE Value="" description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="NEGOTIATED_RATE_FXD_CRN">
+				<ft:CODE Value="" description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="REQUEST_TYPE">
+				<ft:CODE Value=" " description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="VAL_IND">
+				<ft:CODE Value="N" description="Next Valid Date"/>
+			</ft:CODESET>
+			<ft:CODESET Name="REC_FREQ">
+				<ft:CODE Value="4" description="Monthly"/>
+			</ft:CODESET>
+			<ft:CODESET Name="MARKED_FOR_STOP_STATUS">
+				<ft:CODE Value="N" description="No"/>
+			</ft:CODESET>
+			<ft:CODESET Name="APPROVAL_REASON">
+				<ft:CODE Value=" " description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="NETWORK">
+				<ft:CODE Value="NFT" description="NEFT"/>
+			</ft:CODESET>
+			<ft:CODESET Name="DEST_TYPE">
+				<ft:CODE Value="P" description="Personal Payees"/>
+			</ft:CODESET>
+			<ft:CODESET Name="INITOR_TYPE">
+				<ft:CODE Value="O" description="Own Accounts"/>
+			</ft:CODESET>
+			<ft:CODESET Name="ENTRY_STATUS"/>
+		</ft:CODEDESCRIPTION>
+	</ft:footer>
+</TranDetailsResponse>
+
+ 
+Step 3: Rescheduling all pending instances of recurring transaction created in Step1:
+
+  3a. Request: 
+
+ <soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:mod="http://www.infosys.com/request/ModifyPmtToPersonalPayee"
+	xmlns:head="http://www.infosys.com/request/header">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<mod:ModifyPmtToPersonalPayeeRequest version=" ">
+			<head:header>
+				<head:__SRVCID__>MPMTN</head:__SRVCID__>
+				<head:OPFMT>XML</head:OPFMT>
+				<head:CHANNEL_ID>G</head:CHANNEL_ID>
+				<head:BANK_ID>IBKL</head:BANK_ID>
+				<head:IPFMT>XML</head:IPFMT>
+				<head:LOGIN_FLAG>1</head:LOGIN_FLAG>
+				<head:LANGUAGE_ID>001</head:LANGUAGE_ID>
+				<head:ISMULTIREC>Y</head:ISMULTIREC>
+				<head:USER_PRINCIPAL>70361528</head:USER_PRINCIPAL>
+				<head:CORP_PRINCIPAL>70361528</head:CORP_PRINCIPAL>
+				<head:STATEMODE>Y</head:STATEMODE>
+				<head:FORM_ID></head:FORM_ID>
+				<head:ACCESS_CODE></head:ACCESS_CODE>
+				<head:LOGIN_TYPE></head:LOGIN_TYPE>
+				<head:RELATIONSHIP_ID></head:RELATIONSHIP_ID>
+				<head:IP_ADDRESS></head:IP_ADDRESS>
+				<head:PORTAL_REQUEST></head:PORTAL_REQUEST>
+				<head:PORTAL_RANDOM_ID></head:PORTAL_RANDOM_ID>
+				<head:USER_ID></head:USER_ID>
+				<head:ISATTACHMENT></head:ISATTACHMENT>
+				<head:DEVICE_ID></head:DEVICE_ID>
+				<head:DEVICE_TYPE></head:DEVICE_TYPE>
+				<head:MACHINE_FINGER_PRINT></head:MACHINE_FINGER_PRINT>
+				<head:BROWSER_TYPE></head:BROWSER_TYPE>
+				<head:REQUESTED_FRAME_START_INDEX></head:REQUESTED_FRAME_START_INDEX>
+			</head:header>
+			<mod:ModifyPmtToPersonalPayee>
+				<mod:REQUEST_ID>71919995</mod:REQUEST_ID>
+				<mod:TXN_DATE>31/05/2020</mod:TXN_DATE>
+				<mod:TXN_CURRENCY>INR</mod:TXN_CURRENCY>
+				<mod:TXN_AMOUNT>36.00</mod:TXN_AMOUNT>
+				<mod:FROM_ACCOUNT_ID>103104000134378</mod:FROM_ACCOUNT_ID>
+				<mod:FROM_ACCOUNT_BRANCH_CODE>00039</mod:FROM_ACCOUNT_BRANCH_CODE>
+				<mod:PAYEE_ID></mod:PAYEE_ID>
+				<mod:HOST_PAYEE_ID></mod:HOST_PAYEE_ID>
+				<mod:FREQUENCY_TYPE>O</mod:FREQUENCY_TYPE>
+				<mod:IS_TXN_CONFIDENTIAL></mod:IS_TXN_CONFIDENTIAL>
+				<mod:TXN_REMARKS></mod:TXN_REMARKS>
+				<mod:NETWORK></mod:NETWORK>
+				<mod:VALIDITY_INDICATOR></mod:VALIDITY_INDICATOR>
+				<mod:BENEFICIARY_REFERENCE></mod:BENEFICIARY_REFERENCE>
+				<mod:HOST_REFERENCE_NUM></mod:HOST_REFERENCE_NUM>
+				<mod:BENEFICIARY_ADDRESS_1></mod:BENEFICIARY_ADDRESS_1>
+				<mod:BENEFICIARY_ADDRESS_2></mod:BENEFICIARY_ADDRESS_2>
+				<mod:BENEFICIARY_ADDRESS_3></mod:BENEFICIARY_ADDRESS_3>
+				<mod:BENEFICIARY_CITY></mod:BENEFICIARY_CITY>
+				<mod:BENEFICIARY_ZIP></mod:BENEFICIARY_ZIP>
+				<mod:BENEFICIARY_STATE></mod:BENEFICIARY_STATE>
+				<mod:BENEFICIARY_COUNTRY></mod:BENEFICIARY_COUNTRY>
+				<mod:BNF_CODE></mod:BNF_CODE>
+				<mod:BNF_REFERENCE_PARTY_NAME></mod:BNF_REFERENCE_PARTY_NAME>
+				<mod:BNF_REFERENCE_PARTY_ID></mod:BNF_REFERENCE_PARTY_ID>
+				<mod:RecurringTransaction>
+					<mod:RECURRING_FREQUENCY></mod:RECURRING_FREQUENCY>
+					<mod:TOTAL_NUM_OF_INSTANCES></mod:TOTAL_NUM_OF_INSTANCES>
+					<mod:FIRST_PMT_DATE></mod:FIRST_PMT_DATE>
+					<mod:FREQUENCY_IN_DAYS></mod:FREQUENCY_IN_DAYS>
+					<mod:END_DATE></mod:END_DATE>
+					<mod:RECURRING_FIRST_PMT_AMOUNT></mod:RECURRING_FIRST_PMT_AMOUNT>
+					<mod:RECURRING_LAST_PMT_AMOUNT></mod:RECURRING_LAST_PMT_AMOUNT>
+				</mod:RecurringTransaction>
+				<mod:WorkFlowUserInput>
+					<mod:WORKFLOW_RULE_ID></mod:WORKFLOW_RULE_ID>
+					<mod:WORKFLOW_USER_REMARKS></mod:WORKFLOW_USER_REMARKS>
+					<mod:NEXT_APPROVER_ID></mod:NEXT_APPROVER_ID>
+					<mod:NEXT_APPROVER_TYPE></mod:NEXT_APPROVER_TYPE>
+				</mod:WorkFlowUserInput>
+			</mod:ModifyPmtToPersonalPayee>
+		</mod:ModifyPmtToPersonalPayeeRequest>
+	</soapenv:Body>
+</soapenv:Envelope>
+ 
+ 
+  3b.Response:
+ 
+ <?xml version="1.0" encoding="UTF-8"?>
+<ModifyPmtToPersonalPayeeResponse
+	xmlns="http://www.infosys.com/response/ModifyPmtToPersonalPayee"
+	xmlns:ft="http://www.infosys.com/response/footer"
+	xmlns:hd="http://www.infosys.com/response/header"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.infosys.com/response/ModifyPmtToPersonalPayee ModifyPmtToPersonalPayeeResponse.xsd">
+	<hd:header>
+		<hd:STATUS>
+			<hd:MESSAGE>
+				<hd:MESSAGE_CODE>100761</hd:MESSAGE_CODE>
+				<hd:MESSAGE_DESC>The transaction with reference ID is submitted successfully and is pending for processing. Ref. ID: [71919995]</hd:MESSAGE_DESC>
+				<hd:MESSAGE_TYPE>BC</hd:MESSAGE_TYPE>
+			</hd:MESSAGE>
+		</hd:STATUS>
+		<hd:SESSION>
+			<hd:SESSION_ID>0000wC13NTVYZ4_4sEv90IG4RKx:1cv04ujba</hd:SESSION_ID>
+			<hd:FORM_ID>4338</hd:FORM_ID>
+		</hd:SESSION>
+	</hd:header>
+	<ModifyPmtToPersonalPayee>
+		<REQUEST_ID>71919995</REQUEST_ID>
+		<TXN_ID/>
+		<TXN_STATUS/>
+		<HOST_REFERENCE_NUM/>
+		<RESPONSE_CODE/>
+		<RESPONSE_MESSAGE/>
+	</ModifyPmtToPersonalPayee>
+	<ft:footer>
+		<ft:CODEDESCRIPTION/>
+	</ft:footer>
+</ModifyPmtToPersonalPayeeResponse>
+ 
+ 
+ 
+ 
+ Step 4:  Fetching the schedule of recurring payment after reschedule all pending instances :
+ 
+ 4a. Request: 
+ 	Same as per step 2a.
+ 
+ 4b. Response:
+ 
+ <?xml version="1.0" encoding="UTF-8"?>
+<TranDetailsResponse
+	xmlns="http://www.infosys.com/response/TranDetails"
+	xmlns:ft="http://www.infosys.com/response/footer"
+	xmlns:hd="http://www.infosys.com/response/header"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.infosys.com/response/TranDetails TranDetailsResponse.xsd">
+	<hd:header>
+		<hd:STATUS>
+			<hd:MESSAGE>
+				<hd:MESSAGE_CODE>0000</hd:MESSAGE_CODE>
+				<hd:MESSAGE_DESC>SUCCESS</hd:MESSAGE_DESC>
+				<hd:MESSAGE_TYPE>SU</hd:MESSAGE_TYPE>
+			</hd:MESSAGE>
+		</hd:STATUS>
+		<hd:SESSION>
+			<hd:SESSION_ID>0000282n8Y0RZy7lU7Ls1dCLbo6:1cv04ujba</hd:SESSION_ID>
+			<hd:FORM_ID>8479</hd:FORM_ID>
+		</hd:SESSION>
+		<hd:PAGINATION>
+			<hd:NUM_REC_RETURNED>1</hd:NUM_REC_RETURNED>
+			<hd:HAS_MORE_RECORDS>N</hd:HAS_MORE_RECORDS>
+		</hd:PAGINATION>
+	</hd:header>
+	<TransactionDetails>
+		<USER_TYPE>1</USER_TYPE>
+		<TXN_TYPE>NFT</TXN_TYPE>
+		<FREQ_TYPE>O</FREQ_TYPE>
+		<TXN_DATE>31/05/2020 12:00:00 AM</TXN_DATE>
+		<TXN_CRN>INR</TXN_CRN>
+		<HLD_FLG>N</HLD_FLG>
+		<IS_TXN_CONFIDENTIAL>N</IS_TXN_CONFIDENTIAL>
+		<MAN_REL_UPDATE>N</MAN_REL_UPDATE>
+		<HIGHEST_ENTRY_AMT>INR|36.00</HIGHEST_ENTRY_AMT>
+		<TOTAL_TXN_AMT>INR|36.00</TOTAL_TXN_AMT>
+		<TOTAL_CHARGE_AMT>INR|0.00</TOTAL_CHARGE_AMT>
+		<TOTAL_AMT>INR|36.00</TOTAL_AMT>
+		<TOTAL_NO_ENTRIES>1</TOTAL_NO_ENTRIES>
+		<HIGHEST_REQUEST_SR_NO>1</HIGHEST_REQUEST_SR_NO>
+		<TOT_NO_INST>1</TOT_NO_INST>
+		<TXN_STATUS>FTD</TXN_STATUS>
+		<REQUEST_ID>71919995</REQUEST_ID>
+		<PARENT_REQUEST_ID>0</PARENT_REQUEST_ID>
+		<HOST_REF_NUM/>
+		<NEGOTIATED_RATE_VAR_CRN/>
+		<NEGOTIATED_RATE_VAR/>
+		<NEGOTIATED_RATE_FXD_CRN/>
+		<NEGOTIATED_RATE_FXD/>
+		<APPROVAL_REASON/>
+		<USER_ENTRY_REMARKS/>
+		<TRAN_CP_TYPE/>
+		<MAX_NO_OF_ENTRIES/>
+		<MANDATE_ID/>
+		<ENTRY_INDEX>-1</ENTRY_INDEX>
+		<MARKED_FOR_STOP_STATUS>N</MARKED_FOR_STOP_STATUS>
+		<ENTRY_ID_SINGLE/>
+		<ENTRY_AMT_SINGLE/>
+		<FIRST_PMT_AMT/>
+		<LAST_PMT_AMT/>
+		<REQUEST_TYPE/>
+		<NO_OF_INST_PROCESSED>0</NO_OF_INST_PROCESSED>
+		<VAL_IND>N</VAL_IND>
+		<REC_FREQ>4</REC_FREQ>
+	</TransactionDetails>
+	<TransactionRecordDetails>
+		<TransactionRecordDetails_REC>
+			<ENTRY_ID>1</ENTRY_ID>
+			<ORIG_DETAIL>RAHUL JIJABRAO PATIL</ORIG_DETAIL>
+			<NETWORK>NFT</NETWORK>
+			<DEST_DETAIL>RAHUL JIJABRAO PATIL</DEST_DETAIL>
+			<DEST_ID>32948447|</DEST_ID>
+			<DEST_TYPE>P</DEST_TYPE>
+			<CHARGE_AMT>INR|0.00</CHARGE_AMT>
+			<ENTRY_AMT>INR|36.00</ENTRY_AMT>
+			<TOTAL_AMOUNT>INR|36.00</TOTAL_AMOUNT>
+			<INITOR_ACCOUNT>103104000134378|IBKL|00103</INITOR_ACCOUNT>
+			<INITOR_TYPE>O</INITOR_TYPE>
+			<DEL_FLG>N</DEL_FLG>
+			<ENTRY_STATUS/>
+			<MARKED_FOR_STOP_STATS/>
+			<ENT_REMARKS/>
+		</TransactionRecordDetails_REC>
+	</TransactionRecordDetails>
+	<ft:footer>
+		<ft:CODEDESCRIPTION>
+			<ft:CODESET Name="TXN_STATUS">
+				<ft:CODE Value="FTD" description="Future Dated"/>
+			</ft:CODESET>
+			<ft:CODESET Name="TXN_TYPE">
+				<ft:CODE Value="NFT" description="Initiate NEFT Payment"/>
+			</ft:CODESET>
+			<ft:CODESET Name="FREQ_TYPE">
+				<ft:CODE Value="O" description="One Time"/>
+			</ft:CODESET>
+			<ft:CODESET Name="USER_TYPE">
+				<ft:CODE Value="1" description="Retail Users"/>
+			</ft:CODESET>
+			<ft:CODESET Name="TXN_CRN">
+				<ft:CODE Value="INR" description="INR"/>
+			</ft:CODESET>
+			<ft:CODESET Name="NEGOTIATED_RATE_VAR_CRN">
+				<ft:CODE Value="" description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="NEGOTIATED_RATE_FXD_CRN">
+				<ft:CODE Value="" description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="REQUEST_TYPE">
+				<ft:CODE Value=" " description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="VAL_IND">
+				<ft:CODE Value="N" description="Next Valid Date"/>
+			</ft:CODESET>
+			<ft:CODESET Name="REC_FREQ">
+				<ft:CODE Value="4" description="Monthly"/>
+			</ft:CODESET>
+			<ft:CODESET Name="MARKED_FOR_STOP_STATUS">
+				<ft:CODE Value="N" description="No"/>
+			</ft:CODESET>
+			<ft:CODESET Name="APPROVAL_REASON">
+				<ft:CODE Value=" " description=""/>
+			</ft:CODESET>
+			<ft:CODESET Name="NETWORK">
+				<ft:CODE Value="NFT" description="NEFT"/>
+			</ft:CODESET>
+			<ft:CODESET Name="DEST_TYPE">
+				<ft:CODE Value="P" description="Personal Payees"/>
+			</ft:CODESET>
+			<ft:CODESET Name="INITOR_TYPE">
+				<ft:CODE Value="O" description="Own Accounts"/>
+			</ft:CODESET>
+			<ft:CODESET Name="ENTRY_STATUS"/>
+		</ft:CODEDESCRIPTION>
+	</ft:footer>
+</TranDetailsResponse>
